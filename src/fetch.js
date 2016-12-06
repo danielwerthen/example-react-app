@@ -7,3 +7,13 @@ export function get(resource) {
   return fetch(url.resolve(basePath, resource))
     .then(res => res.json());
 }
+
+export function put(resource, body) {
+  return fetch(url.resolve(basePath, resource), {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(body),
+  });
+}

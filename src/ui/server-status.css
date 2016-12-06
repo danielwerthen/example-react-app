@@ -1,0 +1,20 @@
+.server-status {
+  background: #ddd;
+  width: calc(33% - 40px);
+  display: inline-block;
+  margin: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+.server-status dt {
+  display: inline-block;
+  width: 30%;
+}
+.server-status dd {
+  display: inline-block;
+  width: 70%;
+  margin: 0;
+}
