@@ -26,6 +26,12 @@ const schema = {
   }
 };
 
+const uiSchema = {
+  name: {
+    'ui:autofocus': true,
+  },
+};
+
 function View({
   server,
   putResource,
@@ -41,6 +47,7 @@ function View({
     <ServerEditor
       server={server}
       schema={schema}
+      uiSchema={uiSchema}
       onSubmit={handleSubmit}
     />
   </Dialog>);

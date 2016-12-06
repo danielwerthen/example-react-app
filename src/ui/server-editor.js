@@ -14,10 +14,10 @@ export default function ServerEditor({
       {...rest}
     >
       <div className="buttons">
+        <button type="submit">Ok</button>
         <Link to="/">
           <button>Cancel</button>
         </Link>
-        <button type="submit">Ok</button>
       </div>
     </Form>
   </div>);
