@@ -1,0 +1,22 @@
+.outer-dialog {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.inner-dialog {
+  margin: 20%;
+  background: white;
+  border-radius: 4px;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.inner-dialog h1 {
+  background: grey;
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+}

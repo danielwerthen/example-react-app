@@ -1,0 +1,17 @@
+.server-editor fieldset {
+  padding: 10px;
+  border: 0;
+  border-bottom: 1px solid black;
+}
+
+.server-editor button {
+  padding: 10px;
+  margin: 10px;
+  background: white;
+  border-radius: 4px;
+  min-width: 60px;
+}
+
+.server-editor .buttons {
+  direction: rtl;
+}

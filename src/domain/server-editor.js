@@ -3,9 +3,47 @@ import { connect } from 'react-redux';
 import { createSelector } from 'reselect';
 import _ from 'lodash';
 import * as actions from './action-creators';
+import { withRouter } from 'react-router';
+import compose from '../hocs/compose';
 
-function ServerEditor({ server }) {
-  return <pre>{JSON.stringify(server, 10, '  ')}</pre>;
+import Dialog from '../ui/dialog';
+import ServerEditor from '../ui/server-editor';
+
+const schema = {
+  type: "object",
+  required: ['name', 'protocol', 'port'],
+  properties: {
+    name: {
+      type: 'string',
+    },
+    protocol: {
+      type: 'string',
+      enum: ['HTTP', 'HTTPS'],
+    },
+    port: {
+      type: 'number',
+    },
+  }
+};
+
+function View({
+  server,
+  putResource,
+  router,
+}) {
+  const handleSubmit = ({ formData }) =>
+    putResource('virtualizations', server.virtualizationID, {
+      ...server,
+      ...formData,
+    })
+    .then(() => router.push('/'));
+  return (<Dialog title="Edit">
+    <ServerEditor
+      server={server}
+      schema={schema}
+      onSubmit={handleSubmit}
+    />
+  </Dialog>);
 }
 
 const mapState = () => createSelector(
@@ -13,7 +51,13 @@ const mapState = () => createSelector(
     const list = _.get(state, 'resources.virtualizations.virtualizationList', []);
     return _.find(list, v => v.virtualizationID === params.id);
   },
-  server => ({ server })
+  server => ({
+    server,
+    schema,
+  }),
 );
 
-export default connect(mapState)(ServerEditor);
+export default compose(
+    connect(mapState, actions),
+    withRouter,
+  )(View);
