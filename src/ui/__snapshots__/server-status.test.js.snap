@@ -1,0 +1,3 @@
+exports[`ServerStatus should match snapshot 1`] = `"<div data-reactroot=\"\" class=\"server-status\"><p></p><p>Stopped</p><p></p><dl><dt>port</dt><dd></dd><dt>protocol</dt><dd></dd></dl><a>Edit</a><span> </span><a href=\"/undefined/start\">Start</a></div>"`;
+
+exports[`ServerStatus should match snapshot when running 1`] = `"<div data-reactroot=\"\" class=\"server-status\"><p></p><p>Running</p><p></p><dl><dt>port</dt><dd></dd><dt>protocol</dt><dd></dd></dl><a>Edit</a><span> </span><a href=\"/undefined/stop\">Stop</a></div>"`;
